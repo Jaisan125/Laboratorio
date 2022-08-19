@@ -1,0 +1,32 @@
+#Deber 3: Vibracion no amortiguada Forzada Armonica de Posicion
+#Jairo Gualotuña 
+
+from re import T
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Datos:
+m = 0.1 #(kg)(masa)
+Wn = 20 #(rad/s)(Frecuencia Natural no Amortiguada)
+O = 20 #(rad/s)(Omega)
+T = 0 #Theta
+B = O/Wn #(Frequency ratio)(Beta)
+C = 0 #(Amortiguamiento)
+F = 1 #(N)(Fuerza)
+k = (Wn**2)*m
+t = np.linspace(0,5,1000) #(s)(tiempo)
+
+print("Para que esté en Resonancia, debe: B=1,C=0 y O=Wn")
+print("B=",B)
+print("C=",C)
+print("Ver si O es igual a Wn:","O=",O,"y","Wn=",Wn)
+#Ecuacion:
+def fx(x):
+    y = (F/k)*Wn*x*np.sin(Wn*x)
+    return y 
+
+r = fx(t)
+#Graficas:
+plt.plot(t,r)
+plt.show()
+
